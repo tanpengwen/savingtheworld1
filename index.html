@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Left Panel Example</title>
+    <style>
+      /* Style for the left panel */
+      .left-panel {
+        position: fixed; /* Keep the panel fixed while scrolling */
+        top: 0;
+        left: 0;
+        width: 200px; /* Set the width of the panel */
+        height: 100%; /* Set the height of the panel */
+        background-color: #f1f1f1; /* Set the background color of the panel */
+        overflow-x: hidden; /* Hide horizontal scrollbar */
+        padding-top: 20px; /* Add padding to the top of the panel */
+      }
+      
+      /* Style for the category title */
+      .left-panel h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #ddd;
+      }
+      
+      /* Style for the links inside the left panel */
+      .left-panel a {
+        display: block; /* Display the links as blocks */
+        color: #000; /* Set the color of the links */
+        padding: 12px; /* Add padding to the links */
+        text-decoration: none; /* Remove underline from the links */
+      }
+      
+      /* Style for the active link */
+      .left-panel a.active {
+        background-color: #4CAF50; /* Set the background color of the active link */
+        color: #fff; /* Set the color of the active link */
+      }
+      
+      /* Style for the blank page */
+      .blank-page {
+        margin-left: 200px; /* Add margin to the left of the page to accommodate the left panel */
+        padding: 20px; /* Add padding to the page */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left-panel">
+      <h2>Subjects</h2>
+      <a href="#" class="active" onclick="showBlankPage('category1')">H2 Computing</a>
+      <a href="#" onclick="showBlankPage('category2')">H2 Mathemathics</a>
+      <a href="#" onclick="showBlankPage('category3')">H2 FM</a>
+      <a href="#" onclick="showBlankPage('category4')">H1 Economics</a>
+    </div>
+    
+    <div class="blank-page">
+      <p>Hello</p>
+    </div>
+    
+    <script>
+      function showBlankPage(category) {
+        // Navigate to the blank page for the selected category
+        window.location.href = category + ".html";
+      }
+    </script>
+  </body>
+</html>

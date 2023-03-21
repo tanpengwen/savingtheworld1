@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>category4 stuff</title>
+  </head>
+  <body>
+    <form>
+      <label for="text-box14">Enter question:</label>
+      <input type="text" id="text-box14" name="text-box14"><br><br>
+      <input type="button" value="Save" onclick="saveData14()"><br><br>
+      <label for="text-box24">Enter solution:</label>
+      <input type="text" id="text-box24" name="text-box24"><br><br>
+      <input type="button" value="Save" onclick="saveData24()"><br><br>
+    </form>
+    <div id="saved-data14"></div>
+    <div id="saved-data24"></div>
+
+    <script>
+      function saveData14() {
+        var data14 = document.getElementById("text-box14").value;
+        var existingData14 = localStorage.getItem("myData14");
+        if (existingData14 === null) {
+          localStorage.setItem("myData14", data14);
+        } else {
+          localStorage.setItem("myData14", existingData14 + "," + data14);
+        }
+        displayData14();
+      }
+
+      function saveData24() {
+        var data24 = document.getElementById("text-box24").value;
+        var existingData24 = localStorage.getItem("myData24");
+        if (existingData24 === null) {
+          localStorage.setItem("myData24", data24);
+        } else {
+          localStorage.setItem("myData24", existingData24 + "," + data24);
+        }
+        displayData24();
+      }
+
+      function displayData14() {
+        var savedData14 = localStorage.getItem("myData14");
+        var dataArray14 = savedData14.split(",");
+        var display14 = "Questions: <br>";
+        for (var i = 0; i < dataArray14.length; i++) {
+          display14 += dataArray14[i] + " <button onclick='deleteData14(" + i + ")'>Delete</button><br>";
+        }
+        document.getElementById("saved-data14").innerHTML = display14;
+      }
+
+      function displayData24() {
+        var savedData24 = localStorage.getItem("myData24");
+        var dataArray24 = savedData24.split(",");
+        var display24 = "Solutions: <br>";
+        for (var i = 0; i < dataArray24.length; i++) {
+          display24 += dataArray24[i] + " <button onclick='deleteData24(" + i + ")'>Delete</button><br>";
+        }
+        document.getElementById("saved-data24").innerHTML = display24;
+      }
+
+      function deleteData14(index) {
+        var savedData14 = localStorage.getItem("myData14");
+        var dataArray14 = savedData14.split(",");
+        dataArray14.splice(index, 1);
+        localStorage.setItem("myData14", dataArray14.join(","));
+        displayData14();
+      }
+
+      function deleteData24(index) {
+        var savedData24 = localStorage.getItem("myData24");
+        var dataArray24 = savedData24.split(",");
+        dataArray24.splice(index, 1);
+        localStorage.setItem("myData24", dataArray24.join(","));
+        displayData24();
+      }
+
+      displayData14();
+      displayData24();
+    </script>
+  </body>
+</html>

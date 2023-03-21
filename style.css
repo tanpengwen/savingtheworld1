@@ -1,0 +1,5 @@
+/* Style for the main content */
+.main-content {
+  margin-left: 200px; /* Add margin to the left of the main content to accommodate the left panel */
+  padding: 20px; /* Add padding to the main content */
+}
